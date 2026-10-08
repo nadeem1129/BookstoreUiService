@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 
 export default function LoginPage() {
@@ -7,6 +8,7 @@ export default function LoginPage() {
 const [error, setError] = useState(null);
         const [submitting, setSubmitting] = useState(false);
 
+        const { login } = useAuth();
         const navigate = useNavigate();
         const location = useLocation();
         const from = location.state?.from?.pathname ?? '/';
@@ -18,7 +20,7 @@ const [error, setError] = useState(null);
             setError(null);
             setSubmitting(true);
             try {
-                
+                await login(form);
                 navigate(from, { replace: true });
             } catch (err) {
                 setError(err.message);
