@@ -109,3 +109,31 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+.navbar_brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.navbar_links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.navbar_user {
+  color: var(--color-muted);
+}

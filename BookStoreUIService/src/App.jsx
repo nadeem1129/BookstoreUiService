@@ -4,18 +4,22 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import {AuthProvider} from './context/AuthContext';
 import {CartProvider} from './context/CartContext';
+import Navbar from './components/Navbar';
 
 function App() {
   
   return (
     <BrowserRouter>
     <AuthProvider>
-      <CartProvider>  
-        <Routes>
-        <Route path="/" element={<BooksPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-      </Routes>
+      <CartProvider> 
+        <Navbar />
+        <main className="container">
+          <Routes>
+            <Route path="/" element={<BooksPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </main>
       </CartProvider>
     </AuthProvider>
       
