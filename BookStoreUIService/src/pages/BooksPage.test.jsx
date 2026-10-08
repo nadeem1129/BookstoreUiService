@@ -5,6 +5,28 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { bookApi } from '../api';
 import BooksPage from './BooksPage';
 
+const mocks = vi.hoisted(() => ({
+    navigate: vi.fn(),
+    useAuth: vi.fn(),
+    useCart: vi.fn(),
+}));
+
+vi.mock('react-router-dom', async (importOriginal) => {
+    const router = await importOriginal();
+    return {
+        ...router,
+        useNavigate: () => mocks.navigate,
+    };
+});
+
+vi.mock('../context/AuthContext', () => ({
+    useAuth: mocks.useAuth,
+}));
+
+vi.mock('../context/CartContext', () => ({
+    useCart: mocks.useCart,
+}));
+
 const books = [
     {
         id: 1,
@@ -29,6 +51,8 @@ describe('BooksPage', () => {
 
     beforeEach(() => {
         getAll = vi.spyOn(bookApi, 'getAll');
+        mocks.useAuth.mockReturnValue({ isAuthenticated: true });
+        mocks.useCart.mockReturnValue({ addItem: vi.fn() });
     });
 
     afterEach(() => {
