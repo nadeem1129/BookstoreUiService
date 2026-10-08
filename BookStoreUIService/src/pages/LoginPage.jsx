@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
 
 
 export default function LoginPage() {
     const [form, setForm] = useState({ username: '', password: '' });
-const [error, setError] = useState(null);
+    const [error, setError] = useState(null);
         const [submitting, setSubmitting] = useState(false);
 
         const { login } = useAuth();
+        const { refresh } = useCart();
         const navigate = useNavigate();
         const location = useLocation();
         const from = location.state?.from?.pathname ?? '/';
@@ -21,6 +23,7 @@ const [error, setError] = useState(null);
             setSubmitting(true);
             try {
                 await login(form);
+                await refresh();
                 navigate(from, { replace: true });
             } catch (err) {
                 setError(err.message);
