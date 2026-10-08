@@ -1,9 +1,5 @@
 import { useState } from 'react';
-
-const formatCurrency = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-});
+import { formatCurrency } from '../utils/format';
 
 export default function BookCard({ book, onAdd, disabled = false }) {
     const [adding, setAdding] = useState(false);
@@ -24,7 +20,7 @@ export default function BookCard({ book, onAdd, disabled = false }) {
             <p>by {book.author}</p>
             <p>{book.description}</p>
             <div>
-                <span>{formatCurrency.format(book.price)}</span>
+                <span>{formatCurrency(book.price)}</span>
                 <span className={`card_stock${outOfStock ? ' card_stock--out' : ''}`}>
                     {outOfStock ? 'Out of stock' : `${book.stock} in stock`}
                 </span>
