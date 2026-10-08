@@ -7,6 +7,7 @@ import {CartProvider} from './context/CartContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import CartPage from './pages/CartPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
 
 function App() {
   
@@ -23,6 +24,14 @@ function App() {
             <Route path="/cart" element={
                 <ProtectedRoute>
                 <CartPage />
+                </ProtectedRoute>
+              }
+              />
+              <Route
+              path="/order-confirmation"
+              element = {
+                <ProtectedRoute>
+                  <OrderConfirmationPage />
                 </ProtectedRoute>
               }
               />

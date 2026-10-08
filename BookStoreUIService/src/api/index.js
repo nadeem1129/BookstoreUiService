@@ -24,5 +24,8 @@ export const cartApi = {
 
 
 export const orderApi = {
-
-}
+    checkout: (idempotencyKey) =>
+    apiClient
+    .post('/orders/checkout', null, { headers: { 'Idempotency-Key': idempotencyKey } })
+    .then((response) => response.data),
+};
