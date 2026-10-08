@@ -25,6 +25,10 @@ export default function CartPage() {
     };
 
     const handleCheckout = async () => {
+        if (cart.items.length === 0) {
+            return;
+        }
+
         setError(null);
         setCheckingOut(true);
 
