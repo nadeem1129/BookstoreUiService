@@ -64,9 +64,6 @@ export default function LoginPage() {
                     {submitting ? 'Signing in...' : 'Login'}
                 </button>
             </form>
-            <p className="muted">
-                Demo account: <code>demo</code> / <code>password123</code>
-            </p>
             <p>
                 No account? <Link to="/register">Register here</Link>
             </p>

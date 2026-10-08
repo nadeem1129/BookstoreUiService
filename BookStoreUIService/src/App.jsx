@@ -5,6 +5,8 @@ import RegisterPage from './pages/RegisterPage';
 import {AuthProvider} from './context/AuthContext';
 import {CartProvider} from './context/CartContext';
 import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
+import CartPage from './pages/CartPage';
 
 function App() {
   
@@ -18,6 +20,12 @@ function App() {
             <Route path="/" element={<BooksPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/cart" element={
+                <ProtectedRoute>
+                <CartPage />
+                </ProtectedRoute>
+              }
+              />
           </Routes>
         </main>
       </CartProvider>

@@ -5,6 +5,7 @@
   --bg: #fff;
   --color-primary: #2d6cdf;
   --color-surface: #ffffff;
+  --color-success: 
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -183,4 +184,91 @@ code {
 .btn--primary {
   background: var(--color-primary);
   color:#fff;
+}
+.auth {
+  max-width: 420px;
+  margin: 0 auto;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid var( -- color-border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.alert--error {
+  background: #fde8ea;
+  color: var( --color-danger);
+}
+
+.alert--success {
+  background: #e6f4ea;
+  color: #15803d;
+}
+
+/* Cart table */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var( --color-surface);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var( --shadow);
+  margin-top: 16px;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var( --color-border);
+}
+
+.btn--plusminus {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  font-size: 1.1rem;
+  margin-top: 16px;
 }

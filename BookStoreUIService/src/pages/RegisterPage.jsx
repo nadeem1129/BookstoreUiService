@@ -70,6 +70,7 @@ export default function RegisterPage() {
                     />
                 </label>
                 <button
+                    className="btn btn--primary"
                     type="submit"
                     disabled={submitting}
                 >
