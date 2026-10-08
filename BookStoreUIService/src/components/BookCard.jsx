@@ -15,13 +15,13 @@ export default function BookCard({ book, onAdd, disabled = false }) {
     };
 
     return (
-        <article>
-            <h3>{book.title}</h3>
-            <p>by {book.author}</p>
-            <p>{book.description}</p>
+        <article className="card">
+            <h3 className="card__title">{book.title}</h3>
+            <p className="card__author">by {book.author}</p>
+            <p className="card__description">{book.description}</p>
             <div>
-                <span>{formatCurrency(book.price)}</span>
-                <span className={`card_stock${outOfStock ? ' card_stock--out' : ''}`}>
+                <span className="card__price">{formatCurrency(book.price)}</span>
+                <span className={`card__stock${outOfStock ? ' card__stock--out' : ''}`}>
                     {outOfStock ? 'Out of stock' : `${book.stock} in stock`}
                 </span>
             </div>
