@@ -19,7 +19,7 @@ export default function BookCard({ book, onAdd, disabled = false }) {
             <h3 className="card__title">{book.title}</h3>
             <p className="card__author">by {book.author}</p>
             <p className="card__description">{book.description}</p>
-            <div>
+            <div className="card__info">
                 <span className="card__price">{formatCurrency(book.price)}</span>
                 <span className={`card__stock${outOfStock ? ' card__stock--out' : ''}`}>
                     {outOfStock ? 'Out of stock' : `${book.stock} in stock`}

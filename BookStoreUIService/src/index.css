@@ -272,3 +272,16 @@ code {
   font-size: 1.1rem;
   margin-top: 16px;
 }
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+.card__stock{
+  color: green;
+}
+
+.card__stock--out{
+  color: red;
+}
